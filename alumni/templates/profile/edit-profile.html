@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+{% include '_messages.html' %}
+
+
+<h1 class="text-center"> Edit Profile</h1>
+<div class="container add-blog">
+    <form action="{{ url_for('auth.edit_profile', id=prof.id) }}" method="POST">
+        <div class="profile">
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form.hidden_tag() }}
+                    {{ form.status.label(class='form-label') }}
+                    {{ form.status(class='form-control') }}
+                    <br>
+                    {{ form.profession.label(class='form-label') }}
+                    {{ form.profession(class='form-control') }}
+                    <br>
+                    {{ form.location.label(class='form-label') }}
+                    {{ form.location(class='form-control') }}
+                    <br>
+                    {{ form.phone.label(class='form-label') }}
+                    {{ form.phone(class='form-control') }}
+                    <br>
+                    {{ form.linkedin.label(class='form-label') }}
+                    {{ form.linkedin(class='form-control') }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.youtube.label(class='form-label') }}
+                    {{ form.youtube(class='form-control') }}
+                    <br>
+                    {{ form.facebook.label(class='form-label') }}
+                    {{ form.facebook(class='form-control') }}
+                    <br>
+                    {{ form.twitter.label(class='form-label') }}
+                    {{ form.twitter(class='form-control') }}
+                    <br>
+                    {{ form.instagram.label(class='form-label') }}
+                    {{ form.instagram(class='form-control') }}
+                    <br>
+                    {{ form.tiktok.label(class='form-label') }}
+                    {{ form.tiktok(class='form-control') }}
+        </div>
+    </div>
+</div>
+{{ form.submit(class='btn btn-primary') }}
+    </form>
+    {{ ckeditor.load() }}
+    {{ ckeditor.config(name='content') }}
+</div>
+{% include '_footer.html' %}
+{% endblock %}

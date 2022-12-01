@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+{% block title %}
+    Alumni Association Mambers
+{% endblock title%}
+
+{% block body %}
+
+{% include 'navbar.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col md-12">
+            <div class="jumbotron m-head">
+                <h2>Alumni Association Members <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#addModel" >Add New Member</button></h2>
+            </div>
+            {% include "_messages.html" %}
+
+            <table class="table table-hover table-dark">
+                <thead>
+                    <tr class="btn-success">
+                        <th>Sn/No</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Gender</th>
+                        <th>Cohort</th>
+                        <th>Profession</th>
+                        <th> Location</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for member in members %}
+                    {% if  member %}
+                    <tr>
+                        <td>{{ member.id}}</td>
+                        <td>{{ member.firstname | title }}</td>
+                        <td>{{ member.lastname | title }}</td>
+                        <td>{{ member.gender[0] | title }}</td>
+                        <td>{{ member.cohort }}</td>
+                        <td>{{ member.profession | title }}</td>
+                        <td>{{ member.location | title }}</td>
+                        <td>
+                            <a class="btn btn-primary sm" data-toggle="modal" data-target="#updateModel{{ member.id }}" href="/update_member/{{ member.id }}">Update</a>
+                            <a class="btn btn-danger sm" href="/delete_member/{{ member.id }}" onclick="return confirm('Are you Sure to DELETE this member?')">Delete</a>
+                        </td>
+            
+                    </tr>
+                </tbody>
+                    <!--Modal Update Member-->
+                    <div id="updateModel{{ member.id }}" class="modal fade " role="dialog">
+                    <div class="modal-dialog ">
+                        <div class="modal-content my-modal">
+                            <div class="modal-header">
+                                <h4 class="modal-title"> Update Member</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ url_for('auth.update_member') }}" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">First Name: </label>
+                                                <input type="hidden" name="id"   value="{{ member.id }}">
+                                                <input type="text" class="form-control" name="firstname"  value="{{ member.firstname }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="lastname">Last Name: </label>
+                                                <input type="text" class="form-control" name="lastname" value="{{ member.lastname }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="gender">Gender: </label>
+                                                <input type="text" class="form-control" name="gender" value="{{ member.gender }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="cohort">Cohort: </label>
+                                                <input type="text" class="form-control" name="cohort" value="{{ member.cohort }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="profession">Profession: </label>
+                                                <input type="text" class="form-control" name="profession"  value="{{ member.profession }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="location">Location: </label>
+                                                <input type="text" class="form-control" name="location" value="{{ member.location }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Update </button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="member">
+                    <h2>Members list is Currently Empty </h2>
+                </div>
+                {% endif %}
+                {% endfor %}
+        </table>
+    </div>
+</div>
+</div>
+    <!--Modal Add Member-->
+    <div id="addModel" class="modal fade " role="dialog">
+    <div class="modal-dialog ">
+        <div class="modal-content my-modal">
+            <div class="modal-header">
+                <h4 class="modal-title"> Add Member</h4>
+            </div>
+            <div class="modal-body">
+                <form action="{{url_for('auth.add_member') }}" method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="firstname">First Name: </label>
+                                <input type="text" class="form-control" name="firstname" required="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Last Name: </label>
+                                <input type="text" class="form-control" name="lastname" required="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender: </label>
+                                <input type="text" class="form-control" name="gender" required="1">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="cohort">Cohort: </label>
+                                <input type="text" class="form-control" name="cohort" required="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="profession">Profession: </label>
+                                <input type="text" class="form-control" name="profession" required="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location: </label>
+                                <input type="text" class="form-control" name="location" required="1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Add </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% include '_footer.html' %}
+{% endblock body %}

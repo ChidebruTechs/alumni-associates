@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favico.png') }}" type="image/x-icon">
+    <!-- CSS only -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" >
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" >
+    <!-- owl stylesheets --> 
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<!-- Gallery Photos -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+<!-- Bootstrap5 CDN version 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ url_for('static', filename='css5/bootstrap.min.css' ) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css5/bootstrap-grid.min.css' ) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css5/bootstrap-reboot.min.css' ) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css5/bootstrap-utilities.min.css' ) }}">
+    <title>{% block title%}{% endblock title%}</title>
+    <style>
+        #wrapper{
+            font-family: serif;
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .center {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .ring { 
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            animation: ring 3s linear infinite;
+        }
+        @keyframes ring {
+            0%  {
+                transform: rotate(0deg);
+                box-shadow: 1px 5px 2px #0013e6;
+            }
+            50%  {
+                transform: rotate(180deg);
+                box-shadow: 1px 5px 2px #fb780c;
+            }
+            100%  {
+                transform: rotate(360deg);
+                box-shadow: 1px 5px 2px #28c804;
+            }
+        }
+
+        .ring::after {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+        }
+        .loader-text {
+            color: #05f711;   
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 200px;   
+            }
+    </style>
+</head>
+<body >
+    <div id="wrapper">
+      <div class="center">
+        <div class="ring"></div>
+        <span class="loader-text">Loading...</span>
+      </div>
+    </div>
+
+        {% block body %} {% endblock body %}
+
+        <script>
+            // $(window).on("load", function(){
+            //  $(".loader-wrapper").fadeOut('slow')
+            // });
+            document.onreadystatechange = function() {
+            if (document.readyState !== "complete") {
+                document.querySelector(
+                  "body").style.visibility = "hidden";
+                document.querySelector(
+                  "#wrapper").style.visibility = "visible";
+            } else {
+                document.querySelector(
+                  "#wrapper").style.display = "none";
+                document.querySelector(
+                  "body").style.visibility = "visible";
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", function(){
+      window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        document.getElementById('navbar_top').classList.add('fixed-top');
+        // add padding top to show content behind navbar
+        navbar_height = document.querySelector('.navbar').offsetHeight;
+        document.body.style.paddingTop = navbar_height + 'px';
+      } else {
+        document.getElementById('navbar_top').classList.remove('fixed-top');
+         // remove padding top from body
+        document.body.style.paddingTop = '0';
+      } 
+  });
+});
+
+var linksContainer = document.getElementById("linkContain");
+          var links = linksContainer.getElementsByClassName("navitem");
+          for(var i = 0; i < links.length; i++) {
+            links[i].addEventListener("click", function(){
+              var current = document.getElementsByClassName("active");
+              current[0].className = current[0].className.replace(" active");
+              this.className += " active";
+            })
+          }
+
+
+          // Fix navigation menu active links
+// $(document).ready(function(){
+//     var path = window.location.pathname,
+//         link = window.location.href
+//     ;
+//     $('a[href="'+path+'"], a[href="'+link+'"]').parent('li').addClass('active');
+// });
+
+// $(function (){
+//             $('nav ul li a.sub-menu').each(function(){
+//                 var path = window.location.href;
+//                 var current = path.substring(path.lastIndexOf('/')+1);
+//                 var url = $(this).attr('href');
+//                 if(url == current){
+//                     $(this).addClass('active');
+//                 };
+//             });     
+//         });
+           </script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='js/jquery.slim.min.js') }}" ></script>
+        <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+      <script src="{{  url_for('static', filename='js/bootstrap.min.js') }}"></script>
+          <!-- javascript --> 
+    <script src="js/owl.carousel.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
+
+    <!-- Bootstrap5  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js5/bootstrap.bundle.js') }}"></script>
+    <script src="{{ url_for('static', filename='js5/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

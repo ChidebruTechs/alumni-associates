@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+
+<h1 class="text-center"> Edit Blog Post</h1>
+<div class="container add-blog">
+    {% include '_messages.html' %}
+    <form action="{{ url_for('auth.edit_blog', id=post.id) }}" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.title.label(class='form-label') }}
+        {{ form.title(class='form-control') }}
+        <br>
+        {{ form.author.label(class='form-label') }}
+        {{ form.author(class='form-control') }}
+        <br>
+        {{ form.slug.label(class='form-label') }}
+        {{ form.slug(class='form-control') }}
+        <br>
+        {{ form.content.label(class='form-label') }}
+        {{ form.content(class='form-control', rows='10') }}
+        <br>
+        {{ form.submit(class='btn btn-primary') }}
+    </form>
+    {{ ckeditor.load() }}
+    {{ ckeditor.config(name='content') }}
+</div>
+{% include '_footer.html' %}
+{% endblock %}

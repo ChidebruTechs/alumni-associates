@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}
+    Blog Posts
+{% endblock %}
+{% block body %}
+{% include "navbar.html" %}
+<h1 align="center">Blog Posts</h1>
+<div class="container text-center blog">
+        {% include "_messages.html" %}
+        <div class="jumbotron">
+            <h2> {{ post.title | title }} </h2>
+            <h5>Created by:  {{ post.author}} </h5>
+            <p><strong> On: {{ post.blog_date}}  slug: {{ post.slug}} </strong></p>
+            <p>{{ post.content | safe }} </p>
+            <a href="{{ url_for('views.blog_posts') }}"  class="btn btn-primary"> View Blogs </a>
+            <a href="{{ url_for('auth.edit_blog', id=post.id) }}" target="_parent" class="btn btn-warning"> Edit </a>
+            <a href="{{ url_for('auth.delete_blog', id=post.id) }}"  class="btn btn-danger"> Delete </a>
+        </div>
+</div>
+
+{% include "_footer.html" %}
+{% endblock %}

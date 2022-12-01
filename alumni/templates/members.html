@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block title %}
+    Alumni Association Mambers
+{% endblock title%}
+
+{% block body %}
+
+{% include 'navbar.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col md-12">
+            <div class="jumbotron">
+                <h2>Alumni Association Members </h2>
+            </div>
+            {% include "_messages.html" %}
+            <table class="table table-hover table-dark">
+                <thead>
+                    <tr class="bg-success">
+                        <th>Sn/No</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Gender</th>
+                        <th>Cohort</th>
+                        <th>Profession</th>
+                        <th> Location</th>
+                        <th> Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for member in members %}
+                    <tr>
+                        <td>{{ member.id}}</td>
+                        <td>{{ member.firstname | upper  }}</td>
+                        <td>{{ member.lastname | title }}</td>
+                        <td>{{ member.gender | title }}</td>
+                        <td>{{ member.cohort }}</td>
+                        <td>{{ member.profession | title }}</td>
+                        <td>{{ member.location | title }}</td>
+                    </tr>
+                </tbody>
+    {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% include '_footer.html' %}
+{% endblock body %}

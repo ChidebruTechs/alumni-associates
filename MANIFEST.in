@@ -1,0 +1,5 @@
+include alumni/instance/mydb.db
+include alumni/migrations
+graft alumni/static
+graft alumni/templates
+global-exclude *.pyc

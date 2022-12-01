@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}
+    Profile
+{% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+{% include '_messages.html' %}
+
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    {% for profile in profiles %}
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Marital Status: <strong>{{ profile.status }}</strong></li>
+      <li class="list-group-item">Profession: <strong>{{ profile.profession }}</strong></li>
+      <li class="list-group-item">Current Location: <strong>{{ profile.location }}</strong></li>
+      <li class="list-group-item">Mobile Phone: <strong>{{ profile.phone }}</strong></li>
+    </ul>
+  
+    <div class="card-body">
+      <li><a href="{{ profile.linkedin }}" target="_blank" class="card-link">Linkedin</a></li>
+      <li><a href="{{ profile.youtube }}"  target="_blank"  class="card-link">YouTube </a></li>
+      <li><a href="{{ profile.facebook }}"  target="_blank"  class="card-link">Facebook </a></li>
+      <li><a href="{{ profile.twitter }}"  target="_blank" class="card-link">Twitter </a></li>
+      <li><a href="{{ profile.instagram }}"  target="_blank" class="card-link">Instagram  </a></li>
+      <li><a href=" {{ profile.tiktok }}"  target="_blank" class="card-link">TikTok </a></li>
+      {% endfor %}
+    </div>
+  </div>
+  {% include '_footer.html' %}
+{% endblock %}

@@ -1,0 +1,121 @@
+body {background-color: silver !important;  font-size: 1.2rem; font-family: Georgia, 'Times New Roman', Times, serif;} 
+li {font-family: Verdana, Geneva, Tahoma, sans-serif;}
+a {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif}
+h1, h2, h3, h4, h5, h6 {font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+nav {position: sticky;}
+label { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1.4rem;}
+.banner_section {margin: auto;}
+.carousel-item img {width: 1120px;
+height: 500px;}
+.carousel-caption  { background-color: black; opacity: .8;}
+.carousel-caption h3 { color:rgb(15, 169, 30);}
+.carousel-caption .btn {box-shadow: 2px 3px 2px silver;}
+.carousel-caption p { font-family: Courier, 'Courier New', monospace; font-size: 1.3rem;}
+.carousel-caption a{ color:  rgb(6, 249, 30); text-decoration: none; font-size: 1.3rem; font-weight: 600;}
+.about-image img {height: 25%vh; width: auto;}
+.about-brief, .about-image { width: 50%;}
+.card-title{ text-align: center; text-decoration: underline; text-shadow: 2px 1px 2px rgb(33, 147, 193);}
+.home, .newsletter, .about{display: flex; flex-wrap: wrap;}
+.newsletter {width: 98vw; background-color:rgb(33, 147, 193); align-items: center; justify-content: center; padding: 15px; color: black;  box-shadow: 2px 2px 2px 3px black;}
+.newsletter p{ color: silver;}
+.newsletter .sub { margin: 5px 0;}
+aside {justify-content: center; align-items: center; text-align: center; }
+aside h4{ text-decoration: underline;  color: rgb(2, 3, 2);}
+nav .active {background-color: rgb(15, 169, 30); border-radius: 5px;}
+.nav-link {color: silver !important;}
+.user { color: rgb(6, 249, 30)!important; font-weight: 600; }
+.m-head {padding: 15px;}
+.my-modal { width: 800px; margin: auto;}
+.about-heading {text-align: center; text-decoration: underline; }
+.add-blog {background-color: rgb(100, 99, 99); color: silver; width: 65vw;font-weight: 600;  border: 2px solid black; padding:15px; margin: 5px auto; border-radius: 10px; box-shadow: 2px 3px 2px black;}
+.blog { width: 75vw;}
+.blogs, .member { align-items: center; justify-content: center; text-align: center; background-color:rgb(33, 147, 193); padding: 10px; color: silver; margin:  10px 0;} 
+.fomu {width: 45vw; height: 70vh; border-radius: 10px; margin: 10px auto; color: rgb(27, 27, 27); font-weight: 500; animation-name: fom; animation-duration: 2s; border: 2px solid black; box-shadow: 2px 1px 2px 2px rgb(33, 147, 193);  color: silver;}
+.table {color: silver; text-align: center;}
+.fomu div {
+   margin: 4px;
+}
+.register {
+  height: 95vh;
+}
+th {font-weight: 700; }
+.modal {background-color: rgb(0, 0, 0);}
+.alumni {color:rgb(6, 249, 30); text-shadow: 2px 2px rgb(6, 180, 249); font-weight: 900; font-family: Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 2.4rem; animation-name: alum; animation-duration: 2s;  animation-iteration-count: infinite;}
+
+@keyframes alum {
+    0%{opacity: 0;}
+    25%{opacity: 0.5;}
+    50%{opacity: 1;}
+    75%{opacity: 0.5;}
+    100%{opacity: 0;}
+}
+@keyframes fom {
+    0%{opacity: 0; width: 150px;}
+    20%{opacity: 0.2; width: 200px;;}
+    40%{opacity: 0.4; width: 250px;}
+    60%{opacity: 0.6; width: 300px;}
+    80%{opacity: 0.8; width: 350px;}
+    100%{opacity: 1; width: 400px;}
+}
+footer {width:100vw; background-color: rgb(4, 4, 4); padding: 10px;  color:rgb(15, 169, 30);}
+footer li {list-style-type: none; margin-left: 8px;} 
+footer li a {text-decoration: none;  color:rgb(33, 147, 193);}
+footer a:hover {color: silver; text-decoration: underline; }
+
+
+/* Responsiveness */
+
+
+@media (max-width: 320px) {
+  .carousel-item img {
+    height: 40vh  !important;
+  }
+}
+
+@media (max-width: 425px) {
+    .container {
+      max-width: 400px;
+    }
+    .login ,  .register {
+      width: 80vw;
+      height: 100vh !important;
+      margin: 3px auto;
+    }
+  }
+  
+
+@media (max-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+    .login {
+      width: 80vw;
+      height: 60vh;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+    .carousel-item img {
+      height: 70vh  !important;
+    }
+    .login {
+      width: 80vw;
+      height: 60vh;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+  

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+    Blog Posts
+{% endblock %}
+{% block body %}
+{% include "navbar.html" %}
+{% include "_messages.html" %}
+
+    <div class="container text-center blog">
+        {% if  blogs %}
+        {% for blog in blogs %}
+        <div class="jumbotron">
+            <h2>  <a style=" color: rgb(33, 193, 60);; text-shadow:  2px 2px 1px  rgb(7, 7, 7);" href="{{ url_for('views.post', id=blog.id) }} " > {{ blog.title | title }}</a> </h2>
+            <h5>Created by: <span style="color: rgb(33, 147, 193);">{{ blog.author}}</span>  </h5>
+            <p><strong> On: <span style="color: rgb(33, 147, 193);">{{ blog.blog_date.strftime("%A, %d %B, %Y at %X") }}</span>   slug: <span style="color: rgb(33, 147, 193);">{{ blog.slug}}</span> </strong></p>
+            <p>{{ blog.content | safe }} </p>
+            <a href="{{ url_for('views.post', id=blog.id) }} " class="btn btn-primary">Read More</a>
+        </div>
+        {% endfor%}
+        {% else %}
+        <div class="blogs">
+            <h2  align="center">Blog Post is currently Empty</h2>
+        </div>
+    <hr>
+    {% endif %}
+</div>
+
+{% include "_footer.html" %}
+{% endblock %}

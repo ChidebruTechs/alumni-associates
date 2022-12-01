@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block body %}
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/"><span class="alumni">Alumni</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item  active">
+          <a class="nav-link " href="/login">Login</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav> -->
+
+  
+  <div class="bg-dark fomu login">
+    {% include '_messages.html' %}
+  <h1 align="center" style="color:rgb(33, 147, 193);">Member Login </h1>
+  <div>
+    <form action="/login" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.email.label(class='form-label') }}
+        {{ form.email(class='form-control') }}
+        <br>
+        {{ form.password.label(class='form-label') }}
+        {{ form.password(class='form-control', id='password') }}
+        <input type="checkbox" onclick="myFunction()">  Show Password
+        <br>
+        {{ form.submit(class='btn btn-primary') }} 
+      </form>
+    </div>
+    <div >
+      <a href="">   <button style="float:left;" class="btn btn-success">Forgot Password</button></a> <span  style="float:right; font-weight: 600;">Not a Member?  <a href="/register"><button class="btn btn-success">Register</button>
+      </a></span>
+     
+    </div>
+</div> 
+<script>
+  function myFunction() {
+var x = document.getElementById("password");
+if (x.type === "password") {
+x.type = "text";
+} else {
+x.type = "password";
+}
+}
+</script>
+<!-- {% include '_footer.html' %} -->
+{% endblock %}

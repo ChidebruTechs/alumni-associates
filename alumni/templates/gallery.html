@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+{% include 'navbar.html'%}
+<input type="radio" id="check1" name="photos" checked>
+<input type="radio" id="check2" name="photos">
+<input type="radio" id="check3" name="photos">
+<input type="radio" id="check4" name="photos">
+<div class="container Gallery">
+        <h1> Alumni Association Photo Gallery </h1>
+        <div class="jumbotron Photos-Category">
+        <label for="check1">All Photos</label>
+        <label for="check2">School </label>
+        <label for="check3">Associate Group </label>
+        <label for="check4">Events </label>
+    </div>
+    <div class="photo-gallery">
+        <div class="pic School">
+            <img src="{{ url_for('static', filename='images/welcome2.jpg') }}" alt="">
+        </div>
+        <div class="pic Group">
+            <img src="{{ url_for('static', filename='images/blog.jpg') }}" alt="">
+        </div>
+        <div class="pic Events'">
+            <img src="{{ url_for('static', filename='images/discuss.jpg') }}" alt="">
+        </div>
+        <div class="pic School">
+            <img src="{{ url_for('static', filename='images/gears.jpg') }}" alt="">
+        </div>
+        <div class="pic Group">
+            <img src="{{ url_for('static', filename='images/classmates.jpg') }}" alt="">
+        </div>
+        <div class="pic Events">
+            <img src="{{ url_for('static', filename='images/welcome1.jpg') }}" alt="">
+        </div>
+        <div class="pic School">
+            <img src="{{ url_for('static', filename='images/refresh.jpg') }}" alt="">
+        </div>
+        <div class="pic Group">
+            <img src="{{ url_for('static', filename='images/meet.jpg') }}" alt="">
+        </div>
+        <div class="pic Events">
+            <img src="{{ url_for('static', filename='images/join.jpg') }}" alt="">
+        </div>
+    </div>
+</div>
+{% include '_footer.html' %}
+{% endblock %}
