@@ -1,1 +1,3 @@
-web: gunicorn 'alumni.wsgi' --log-file-
+web: gunicorn 'main.wsgi' --log-file-
+
+web: npm run start

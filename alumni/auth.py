@@ -105,7 +105,7 @@ def update_member():
         member.gender = request.form['gender']
 
         db.session.commit()
-        flash('Member updated Successfully', 'warning')
+        flash('Member has been updated Successfully', 'warning')
         return redirect(url_for('auth.members'))
 
 #  DELETE MEMBER
@@ -114,7 +114,8 @@ def delete_member(id):
         member = Members.query.get(id)
         db.session.delete(member)
         db.session.commit()
-        flash('Member Deleted', 'danger')
+        message = f'Member ({member.firstname }) has been  Deleted'
+        flash(message, 'danger')
         return redirect(url_for('auth.members'))
 
 

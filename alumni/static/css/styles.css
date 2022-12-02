@@ -21,13 +21,13 @@ height: 500px;}
 .newsletter .sub { margin: 5px 0;}
 aside {justify-content: center; align-items: center; text-align: center; }
 aside h4{ text-decoration: underline;  color: rgb(2, 3, 2);}
-nav .active {background-color: rgb(15, 169, 30); border-radius: 5px;}
+nav .active {background-color: rgb(15, 169, 30) !important; border-radius: 5px;}
 .nav-link {color: silver !important;}
-.user { color: rgb(6, 249, 30)!important; font-weight: 600; }
+.user { color: rgb(6, 249, 30) !important; font-weight: 600; }
 .m-head {padding: 15px;}
 .my-modal { width: 800px; margin: auto;}
 .about-heading {text-align: center; text-decoration: underline; }
-.add-blog {background-color: rgb(100, 99, 99); color: silver; width: 65vw;font-weight: 600;  border: 2px solid black; padding:15px; margin: 5px auto; border-radius: 10px; box-shadow: 2px 3px 2px black;}
+.add-blog {background-color: rgb(100, 99, 99); color: silver; width: 65vw; font-weight: 600;  border: 2px solid black; padding:15px; margin: 5px auto; border-radius: 10px; box-shadow: 2px 3px 2px black;}
 .blog { width: 75vw;}
 .blogs, .member { align-items: center; justify-content: center; text-align: center; background-color:rgb(33, 147, 193); padding: 10px; color: silver; margin:  10px 0;} 
 .fomu {width: 45vw; height: 70vh; border-radius: 10px; margin: 10px auto; color: rgb(27, 27, 27); font-weight: 500; animation-name: fom; animation-duration: 2s; border: 2px solid black; box-shadow: 2px 1px 2px 2px rgb(33, 147, 193);  color: silver;}
