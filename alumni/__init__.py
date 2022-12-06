@@ -4,7 +4,6 @@ from flask_ckeditor import CKEditor
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from os import path
-import toml
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -15,7 +14,6 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///mydb.db"
     # app.config['SQLALCHEMY_DATABASE_URI'] = " postgres://fgbtejvdoaedpd:e40bbfc52e90adf0be4fe382ed93d7788125ee933d125c618d57237fc177aa3d@ec2-3-227-68-43.compute-1.amazonaws.com:5432/d8f0eu0p51ndju"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config.from_file("config.toml", load=toml.load)
     app.config.from_object('alumni.default_settings')
     app.config.from_envvar('YOURAPPLICATION_SETTINGS')
     ckeditor = CKEditor(app)
